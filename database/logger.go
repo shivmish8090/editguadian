@@ -2,6 +2,7 @@ package database
 
 import (
 	"context"
+	"log"
 
 	"go.mongodb.org/mongo-driver/v2/bson"
 	"go.mongodb.org/mongo-driver/v2/mongo"
@@ -32,7 +33,7 @@ func IsLoggerEnabled() bool {
 			config.Cache.Store(key, false)
 			return false
 		}
-  log.Println(err)
+		log.Println(err)
 		return false
 	}
 
