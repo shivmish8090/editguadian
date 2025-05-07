@@ -37,13 +37,9 @@ Let me know if you need any help.`,
 		text,
 		&gotgbot.SendMessageOpts{ParseMode: "HTML"},
 	)
-if r := database.IsLoggerEnabled(); !r {
-
-
-
-return Continue
-
-}
+	if r := database.IsLoggerEnabled(); !r {
+		return Continue
+	}
 	chatMemberCount, err := b.GetChatMemberCount(ctx.EffectiveChat.Id, nil)
 	if err != nil {
 		chatMemberCount = 0
