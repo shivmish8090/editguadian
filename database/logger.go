@@ -10,7 +10,7 @@ import (
 	"main/config"
 )
 
-func IsLoggerEnabled() (bool) {
+func IsLoggerEnabled() bool {
 	const key = "logger"
 
 	if val, ok := config.Cache.Load(key); ok {
