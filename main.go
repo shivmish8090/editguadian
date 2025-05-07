@@ -79,11 +79,11 @@ func main() {
 	}
 
 	log.Printf("%s has been started...\n", b.User.Username)
-	/*_, _ = b.SendMessage(
+	b.SendMessage(
 		config.LoggerId,
 		fmt.Sprintf("%s has started\n", b.User.Username),
 		nil,
-	)*/
+	)
 
 	updater.Idle()
 }
