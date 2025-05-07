@@ -5,7 +5,7 @@ import (
 
 	"go.mongodb.org/mongo-driver/v2/bson"
 
-	"github.com/Vivekkumar-IN/EditguardianBot/config"
+	"main/config"
 )
 
 func GetServedChats() ([]int64, error) {
