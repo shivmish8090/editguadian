@@ -10,12 +10,12 @@ import (
 	"main/config"
 )
 
-func IsLoggerEnabled() (bool, error) {
+func IsLoggerEnabled() (bool) {
 	const key = "logger"
 
 	if val, ok := config.Cache.Load(key); ok {
 		if enabled, valid := val.(bool); valid {
-			return enabled, nil
+			return enabled
 		}
 	}
 
@@ -30,13 +30,13 @@ func IsLoggerEnabled() (bool, error) {
 	if err != nil {
 		if err == mongo.ErrNoDocuments {
 			config.Cache.Store(key, false)
-			return false, nil
+			return false
 		}
-		return false, err
+		return false
 	}
 
 	config.Cache.Store(key, result.Enabled)
-	return result.Enabled, nil
+	return result.Enabled
 }
 
 func SetLogger(enabled bool) error {
