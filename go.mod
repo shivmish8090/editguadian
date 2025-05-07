@@ -1,5 +1,4 @@
-module github.com/Vivekkumar-IN/EditguardianBot
-
+module main
 go 1.24.2
 
 require (
