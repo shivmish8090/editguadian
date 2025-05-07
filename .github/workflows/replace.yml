@@ -19,7 +19,7 @@ jobs:
             ["github.com/Vivekkumar-IN/EditguardianBot"]="main"
             ["config.LoadTyped"]="helpers.LoadTyped"
             ["ERROR_OCCURRED_MSG"]="general_3"
-             ["ANONYMOUS_ADMIN"]="general_4"
+            ["ANONYMOUS_ADMIN"]="general_4"
             ["PERMISSION_REQUIRED"]="general_5"
             ["NO_ACTIVE_VIDEO_STREAM"]="general_6"
 
@@ -63,6 +63,3 @@ jobs:
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
           commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-
-      - name: Delete old workflow run
-        uses: Viyomx/delete-workflow-runs@dev
