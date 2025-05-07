@@ -32,6 +32,7 @@ func IsLoggerEnabled() bool {
 			config.Cache.Store(key, false)
 			return false
 		}
+  log.Println(err)
 		return false
 	}
 
