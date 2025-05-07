@@ -22,9 +22,6 @@ func init() {
 }
 
 func AddedToGroups(b *gotgbot.Bot, ctx *ext.Context) error {
-	if r, e := database.IsLoggerEnabled(); !r {
-		orCont(e)
-	}
 	text := fmt.Sprintf(
 		`Hello 👋 I'm <b>%s</b>, here to help keep the chat transparent and secure.
 
@@ -40,6 +37,13 @@ Let me know if you need any help.`,
 		text,
 		&gotgbot.SendMessageOpts{ParseMode: "HTML"},
 	)
+if r := database.IsLoggerEnabled(); !r {
+
+
+
+return Continue
+
+}
 	chatMemberCount, err := b.GetChatMemberCount(ctx.EffectiveChat.Id, nil)
 	if err != nil {
 		chatMemberCount = 0
