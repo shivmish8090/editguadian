@@ -6,7 +6,7 @@ import (
 
 	"github.com/PaulSonOfLars/gotgbot/v2"
 
-	"github.com/Vivekkumar-IN/EditguardianBot/config"
+	"main/config"
 )
 
 func Owner(m *gotgbot.Message) bool {
