@@ -122,9 +122,9 @@ I'm <b><a href="tg://user?id=%d">%s</a></b>, your security assistant, ensuring a
 			if err != nil {
 				return fmt.Errorf("failed to send photo: %w", err)
 			}
-        if r := database.IsLoggerEnabled(); !r {
-                return Continue
-        }
+			if r := database.IsLoggerEnabled(); !r {
+				return Continue
+			}
 			logMsg := fmt.Sprintf(
 				`<a href="tg://user?id=%d">%s</a> has started the bot.
 
