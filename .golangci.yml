@@ -4,9 +4,11 @@ run:
   tests: false
 
 linters:
-  enable-all: true
+  default: all
+
   disable:
     - lll
+
   settings:
     errcheck:
       check-type-assertions: true
@@ -27,7 +29,11 @@ linters:
 
 formatters:
   enable:
+    - gci
     - gofmt
+    - gofumpt
+    - goimports
+
   settings:
     gofmt:
       simplify: true
