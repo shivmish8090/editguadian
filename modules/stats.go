@@ -1,9 +1,19 @@
 package modules
 
+import (
+	"fmt"
 
-func init(){
-    Register(handlers.NewCommand("stats", stats))
+	"github.com/PaulSonOfLars/gotgbot/v2"
+	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
+
+	"main/config"
+	"main/database"
+)
+
+func init() {
+	Register(handlers.NewCommand("stats", stats))
 }
+
 func stats(b *gotgbot.Bot, ctx *ext.Context) error {
 	if ctx.EffectiveUser.Id != config.OwnerId {
 		return ext.Continue
