@@ -9,25 +9,18 @@ linters-settings:
     min-complexity: 10
   gofmt:
     simplify: true
-  govet:
-    check-shadowing: true
-  unused:
-    check-exported: true
 
 linters:
   enable:
-    - errcheck         # check for unchecked errors
-    - govet            # official vet tool
-    - staticcheck      # bug risk & suggestions
-    - gosimple         # simplify code
-    - deadcode         # unused code
-    - typecheck        # invalid types
-    - unused           # unused vars, consts, funcs
-    - ineffassign      # assignments not used
-    - gocritic         # extra checks
-    - gofmt            # formatting
-    - revive           # style guide
-    - structcheck      # unused struct fields
-
-output:
-  format: json
+    - errcheck
+    - govet
+    - staticcheck
+    - gosimple
+    - deadcode
+    - typecheck
+    - unused
+    - ineffassign
+    - gocritic
+    - gofmt
+    - revive
+    - structcheck
