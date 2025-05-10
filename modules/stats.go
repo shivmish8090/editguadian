@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/PaulSonOfLars/gotgbot/v2"
+	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
 
 	"main/config"
@@ -33,6 +34,6 @@ func stats(b *gotgbot.Bot, ctx *ext.Context) error {
 		text += fmt.Sprintf("Total Users: %d\n", len(users))
 	}
 
-	_, err := ctx.EffectiveMessage.Reply(b, text, &gotgbot.SendMessageOpts{ParseMode:   "HTML"})
+	_, err := ctx.EffectiveMessage.Reply(b, text, &gotgbot.SendMessageOpts{ParseMode: "HTML"})
 	return orCont(err)
 }
