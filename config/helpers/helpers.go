@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/PaulSonOfLars/gotgbot/v2"
+
 	"main/config"
 )
 
