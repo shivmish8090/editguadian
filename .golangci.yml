@@ -1,15 +1,18 @@
 version: "2"
+
 run:
   tests: false
+
 linters:
-  enable:
-    - gocritic
-    - revive
+  enable-all: true
+  disable:
+    - lll
   settings:
     errcheck:
       check-type-assertions: true
     gocyclo:
       min-complexity: 10
+
   exclusions:
     generated: lax
     presets:
@@ -21,6 +24,7 @@ linters:
       - third_party$
       - builtin$
       - examples$
+
 formatters:
   enable:
     - gofmt
