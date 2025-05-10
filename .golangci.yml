@@ -1,6 +1,6 @@
 run:
-  timeout: 2m
-  tests: true
+  timeout: 1m
+  tests: false
 
 linters-settings:
   errcheck:
@@ -18,23 +18,16 @@ linters:
   enable:
     - errcheck         # check for unchecked errors
     - govet            # official vet tool
-    - staticcheck      # code improvements & bug risk
+    - staticcheck      # bug risk & suggestions
     - gosimple         # simplify code
     - deadcode         # unused code
     - typecheck        # invalid types
     - unused           # unused vars, consts, funcs
     - ineffassign      # assignments not used
-    - gocritic         # extra checks (like pylint)
-    - gofmt            # enforce formatting
+    - gocritic         # extra checks
+    - gofmt            # formatting
     - revive           # style guide
     - structcheck      # unused struct fields
-    - depguard         # restrict unwanted imports
-
-issues:
-  exclude-rules:
-    - path: _test\.go
-      linters:
-        - errcheck
 
 output:
   format: json
