@@ -11,6 +11,7 @@ on:
       - "go.sum"
       - ".github/workflows/golangci.yml"
 
+
 jobs:
   golangci:
     name: lint
