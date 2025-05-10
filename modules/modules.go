@@ -13,13 +13,15 @@ const (
 	MaxHelpModules = 10
 )
 
+type HelpModule struct {
+	Callback string
+	Help     string
+}
+
 var (
 	Continue    = ext.ContinueGroups
 	Handlers    = make([]ext.Handler, 0, MaxHandlers)
-	ModulesHelp = make(map[string]struct {
-		Callback string
-		Help     string
-	}, MaxHelpModules)
+	ModulesHelp = make(map[string]*HelpModule, MaxHelpModules)
 )
 
 func orCont(err error) error {
@@ -44,10 +46,7 @@ func AddHelp(name, callback, help string, h ext.Handler) {
 		h = handlers.NewCallback(callbackquery.Equal(callback), helpModuleCB)
 	}
 	Register(h)
-	ModulesHelp[name] = struct {
-		Callback string
-		Help     string
-	}{
+	ModulesHelp[name] = &HelpModule{
 		Callback: callback,
 		Help:     help,
 	}
