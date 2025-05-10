@@ -27,9 +27,9 @@ jobs:
         run: |
           curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.1.6
 
-          #$(go env GOPATH)/bin/golangci-lint migrate --format yml
-
           $(go env GOPATH)/bin/golangci-lint fmt
+          $(go env GOPATH)/bin/golangci-lint run --output json
+
 
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v5
