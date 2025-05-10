@@ -11,11 +11,6 @@ on:
       - "go.sum"
       - ".github/workflows/golangci.yml"
 
-permissions:
-  contents: read
-  pull-requests: read
-  security-events: write
-
 jobs:
   golangci:
     name: lint
