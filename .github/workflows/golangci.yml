@@ -10,12 +10,6 @@ on:
       - "go.mod"
       - "go.sum"
       - ".github/workflows/golangci.yml"
-  pull_request:
-    paths:
-      - "**.go"
-      - "go.mod"
-      - "go.sum"
-      - ".github/workflows/golangci.yml"
 
 permissions:
   contents: read
