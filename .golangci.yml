@@ -1,26 +1,35 @@
+version: "2"
 run:
-  timeout: 1m
   tests: false
-
-linters-settings:
-  errcheck:
-    check-type-assertions: true
-  gocyclo:
-    min-complexity: 10
-  gofmt:
-    simplify: true
-
 linters:
   enable:
-    - errcheck
-    - govet
-    - staticcheck
-    - gosimple
-    - deadcode
-    - typecheck
-    - unused
-    - ineffassign
     - gocritic
-    - gofmt
     - revive
-    - structcheck
+  settings:
+    errcheck:
+      check-type-assertions: true
+    gocyclo:
+      min-complexity: 10
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - gofmt
+  settings:
+    gofmt:
+      simplify: true
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$

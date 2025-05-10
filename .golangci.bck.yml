@@ -1,0 +1,26 @@
+run:
+  timeout: 1m
+  tests: false
+
+linters-settings:
+  errcheck:
+    check-type-assertions: true
+  gocyclo:
+    min-complexity: 10
+  gofmt:
+    simplify: true
+
+linters:
+  enable:
+    - errcheck
+    - govet
+    - staticcheck
+    - gosimple
+    - deadcode
+    - typecheck
+    - unused
+    - ineffassign
+    - gocritic
+    - gofmt
+    - revive
+    - structcheck
