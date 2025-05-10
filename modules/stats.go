@@ -6,21 +6,23 @@ func init(){
 }
 func stats(b *gotgbot.Bot, ctx *ext.Context) error {
 	if ctx.EffectiveUser.Id != config.OwnerId {
-	    
-	    return Continue
+		return ext.Continue
 	}
-	var text
-	if chats, err := database.GetServedChats(); err !=nil {
-	    return err
+
+	var text string
+
+	if chats, err := database.GetServedChats(); err != nil {
+		return err
 	} else {
-	    text = fmt.Sprintf("Total Chats: %d\n", len(chats))
-	    
+		text += fmt.Sprintf("Total Chats: %d\n", len(chats))
 	}
-	
-	if users, err := database.GetServedChats(); err !=nil {
-	    return err
+
+	if users, err := database.GetServedUsers(); err != nil {
+		return err
 	} else {
-	    text = fmt.Sprintf("Total Users: %d\n", len(users))
-	    
+		text += fmt.Sprintf("Total Users: %d\n", len(users))
 	}
+
+	_, err := ctx.EffectiveMessage.Reply(b, text, nil)
+	return err
 }
