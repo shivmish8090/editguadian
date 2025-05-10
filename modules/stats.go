@@ -16,7 +16,7 @@ func init() {
 
 func stats(b *gotgbot.Bot, ctx *ext.Context) error {
 	if ctx.EffectiveUser.Id != config.OwnerId {
-		return ext.Continue
+		return Continue
 	}
 
 	var text string
@@ -34,5 +34,5 @@ func stats(b *gotgbot.Bot, ctx *ext.Context) error {
 	}
 
 	_, err := ctx.EffectiveMessage.Reply(b, text, nil)
-	return err
+	return orCont(err)
 }
