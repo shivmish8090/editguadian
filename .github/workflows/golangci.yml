@@ -37,12 +37,6 @@ jobs:
 
         golangci-lint migrate --format yml
 
-     # - name: golangci-lint
-       # uses: golangci/golangci-lint-action@1481404843c368bc19ca9406f87d6e0fc97bdcfd
-        #with:
-        #  version: latest
-        #  only-new-issues: true
-
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
