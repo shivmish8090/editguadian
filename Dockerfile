@@ -2,7 +2,7 @@ FROM golang:1.24-bullseye AS builder
 WORKDIR /app
 
 COPY go.* ./
-RUN go mod tidy && go mod download
+RUN go mod tidy
 
 COPY . .
 
