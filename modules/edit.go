@@ -52,13 +52,10 @@ func DeleteEditedMessage(b *gotgbot.Bot, ctx *ext.Context) error {
 	case message.Sticker != nil:
 		reason = "<b>🖼️ Replacing a sticker is not permitted.</b> Stickers cannot be edited after posting to maintain their original meaning."
 	}
-
-	keyboard := buttons.EditedMessagePanel(b)
-
 	_, err = b.SendMessage(
 		ctx.EffectiveChat.Id,
 		reason,
-		&gotgbot.SendMessageOpts{ParseMode: "HTML", ReplyMarkup: keyboard},
+		&gotgbot.SendMessageOpts{ParseMode: "HTML"},
 	)
 	if err != nil {
 		return err
