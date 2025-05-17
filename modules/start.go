@@ -110,7 +110,7 @@ I'm <b><a href="tg://user?id=%d">%s</a></b>, your group’s security bot keeping
 			database.AddServedUser(ctx.EffectiveUser.Id)
 
 			if config.StartImageGif != "" {
-				_, err := b.SendAnimation(ctx.EffectiveChat.Id, gotgbot.InputFileByURL(config.SendAnimation), &gotgbot.SendAnimationOpts{
+				_, err := b.SendAnimation(ctx.EffectiveChat.Id, gotgbot.InputFileByURL(config.StartImageGif), &gotgbot.SendAnimationOpts{
 					Caption:     caption,
 					ParseMode:   "HTML",
 					ReplyMarkup: keyboard,
