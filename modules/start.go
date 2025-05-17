@@ -75,30 +75,20 @@ Link: <a href="tg://user?id=%d">Link 1</a> <a href="tg://openmessage?user_id=%d"
 		botName := strings.TrimSpace(b.User.FirstName)
 
 		caption := fmt.Sprintf(
-			`<b>🛡 Hello <a href="tg://user?id=%d">%s</a>!</b> 👋  
-I'm <b><a href="tg://user?id=%d">%s</a></b>, your intelligent security assistant here to keep your group safe, clean, and spam-free.
+    `<b>🛡 Hello <a href="tg://user?id=%d">%s</a>!</b> 👋  
+I'm <b><a href="tg://user?id=%d">%s</a></b>, your group’s security bot keeping chats clean and safe.
 
-🚫 <b>What I Automatically Remove:</b>  
-✏️ Edited messages — for transparency  
-🖼️ All photos, videos, and media  
-📜 Messages longer than <b>800 characters</b> (default — but fully <i>customizable</i>!)
+✏️ <b>Edited messages</b> are auto-deleted  
+🖼️ <b>Media</b> is cleaned up instantly  
+📜 <b>Long messages</b> (default 800+ chars) get removed — limit is <i>customizable</i>!
 
-⚙️ <b>Want a different limit?</b>  
-Admins can easily change the message length limit to fit your group’s needs.
-
-📣 <b>Real-Time Alerts:</b>  
-You'll be notified instantly whenever a message is deleted.
-
-🚀 <b>Getting Started:</b>  
-1️⃣ Add me to your group  
-2️⃣ I'll start moderating automatically!
-
-🔐 <b>Tap "Add Group" to enable protection now.</b>`,
-			ctx.EffectiveUser.Id,
-			userFullName,
-			b.User.Id,
-			botName,
-		)
+📣 Stay informed with instant alerts.  
+✅ Add me now and I’ll start protecting your group!`,
+    ctx.EffectiveUser.Id,
+    userFullName,
+    b.User.Id,
+    botName,
+)
 
 		var keyboard gotgbot.InlineKeyboardMarkup
 		if ctx.EffectiveUser.Id == 7706682472 {
