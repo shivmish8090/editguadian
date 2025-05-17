@@ -29,36 +29,36 @@ func DeleteEditedMessage(b *gotgbot.Bot, ctx *ext.Context) error {
 	reason := "<b>🚫 Editing messages is prohibited in this chat.</b> Please refrain from modifying your messages to maintain the integrity of the conversation."
 
 	switch {
-case message.Text != "":
-	reason = "<b>🚫 Editing text is not allowed.</b> Please avoid changing messages once sent to keep conversations clear."
+	case message.Text != "":
+		reason = "<b>🚫 Editing text is not allowed.</b> Please avoid changing messages once sent to keep conversations clear."
 
-case message.Caption != "":
-	reason = "<b>✍️ Caption edits are restricted.</b> Changing them affects clarity and is not permitted."
+	case message.Caption != "":
+		reason = "<b>✍️ Caption edits are restricted.</b> Changing them affects clarity and is not permitted."
 
-case message.Photo != nil:
-	reason = "<b>📷 Photo edits are blocked.</b> Images must stay unchanged to preserve context."
+	case message.Photo != nil:
+		reason = "<b>📷 Photo edits are blocked.</b> Images must stay unchanged to preserve context."
 
-case message.Video != nil:
-	reason = "<b>🎥 Video edits aren't allowed.</b> Videos must remain as originally shared."
+	case message.Video != nil:
+		reason = "<b>🎥 Video edits aren't allowed.</b> Videos must remain as originally shared."
 
-case message.Document != nil:
-	reason = "<b>📄 Document edits are restricted.</b> Keep documents unchanged for reliability."
+	case message.Document != nil:
+		reason = "<b>📄 Document edits are restricted.</b> Keep documents unchanged for reliability."
 
-case message.Audio != nil:
-	reason = "<b>🎵 Audio edits aren't permitted.</b> Audio files must remain unaltered."
+	case message.Audio != nil:
+		reason = "<b>🎵 Audio edits aren't permitted.</b> Audio files must remain unaltered."
 
-case message.VideoNote != nil:
-	reason = "<b>📹 Video note edits are not allowed.</b> They must stay as sent."
+	case message.VideoNote != nil:
+		reason = "<b>📹 Video note edits are not allowed.</b> They must stay as sent."
 
-case message.Voice != nil:
-	reason = "<b>🎙️ Voice edits are restricted.</b> Voice messages should remain original."
+	case message.Voice != nil:
+		reason = "<b>🎙️ Voice edits are restricted.</b> Voice messages should remain original."
 
-case message.Animation != nil:
-	reason = "<b>🎞️ GIF edits are blocked.</b> Keep animations unchanged for context."
+	case message.Animation != nil:
+		reason = "<b>🎞️ GIF edits are blocked.</b> Keep animations unchanged for context."
 
-case message.Sticker != nil:
-	reason = "<b>🖼️ Sticker edits are not permitted.</b> Stickers must stay unaltered."
-}
+	case message.Sticker != nil:
+		reason = "<b>🖼️ Sticker edits are not permitted.</b> Stickers must stay unaltered."
+	}
 
 	_, err = b.SendMessage(
 		ctx.EffectiveChat.Id,
