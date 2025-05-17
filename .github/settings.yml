@@ -1,2 +1,7 @@
 repository:
-  name: EditGuardainBotname
+  name: EditGuardainBot
+  description: A simple telegarm bot
+  homepage: https://t.me/TheTeamVivek
+  private: true
+  has_downloads: false
+  default_branch: master
