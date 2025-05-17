@@ -115,20 +115,20 @@ I'm <b><a href="tg://user?id=%d">%s</a></b>, your group’s security bot keeping
 					ParseMode:   "HTML",
 					ReplyMarkup: keyboard,
 				})
-if err != nil {
-				return fmt.Errorf("failed to send Gif: %w", err)
-			}
+				if err != nil {
+					return fmt.Errorf("failed to send Gif: %w", err)
+				}
 			} else {
 				_, err := b.SendPhoto(ctx.EffectiveChat.Id, startImg, &gotgbot.SendPhotoOpts{
 					Caption:     caption,
 					ParseMode:   "HTML",
 					ReplyMarkup: keyboard,
 				})
-if err != nil {
-				return fmt.Errorf("failed to send photo: %w", err)
+				if err != nil {
+					return fmt.Errorf("failed to send photo: %w", err)
+				}
 			}
-			}
-			
+
 			if r := database.IsLoggerEnabled(); !r {
 				return Continue
 			}
