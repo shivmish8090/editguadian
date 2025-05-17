@@ -109,21 +109,19 @@ I'm <b><a href="tg://user?id=%d">%s</a></b>, your group’s security bot keeping
 		} else {
 			database.AddServedUser(ctx.EffectiveUser.Id)
 
-   if config.StartImageGif != "" {
-
-_, err := b.SendAnimation(ctx.EffectiveChat.Id, gotgbot.InputFileByURL(config.SendAnimation), &gotgbot.SendAnimationOpts{
-				Caption:     caption,
-				ParseMode:   "HTML",
-				ReplyMarkup: keyboard,
-			})
-
-} else {
-			_, err := b.SendPhoto(ctx.EffectiveChat.Id, startImg, &gotgbot.SendPhotoOpts{
-				Caption:     caption,
-				ParseMode:   "HTML",
-				ReplyMarkup: keyboard,
-			})
-}
+			if config.StartImageGif != "" {
+				_, err := b.SendAnimation(ctx.EffectiveChat.Id, gotgbot.InputFileByURL(config.SendAnimation), &gotgbot.SendAnimationOpts{
+					Caption:     caption,
+					ParseMode:   "HTML",
+					ReplyMarkup: keyboard,
+				})
+			} else {
+				_, err := b.SendPhoto(ctx.EffectiveChat.Id, startImg, &gotgbot.SendPhotoOpts{
+					Caption:     caption,
+					ParseMode:   "HTML",
+					ReplyMarkup: keyboard,
+				})
+			}
 			if err != nil {
 				return fmt.Errorf("failed to send photo: %w", err)
 			}
