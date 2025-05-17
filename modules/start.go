@@ -75,7 +75,7 @@ Link: <a href="tg://user?id=%d">Link 1</a> <a href="tg://openmessage?user_id=%d"
 		botName := strings.TrimSpace(b.User.FirstName)
 
 		caption := fmt.Sprintf(
-    `<b>🛡 Hello <a href="tg://user?id=%d">%s</a>!</b> 👋  
+			`<b>🛡 Hello <a href="tg://user?id=%d">%s</a>!</b> 👋  
 I'm <b><a href="tg://user?id=%d">%s</a></b>, your intelligent security assistant here to keep your group safe, clean, and spam-free.
 
 🚫 <b>What I Automatically Remove:</b>  
@@ -94,11 +94,11 @@ You'll be notified instantly whenever a message is deleted.
 2️⃣ I'll start moderating automatically!
 
 🔐 <b>Tap "Add Group" to enable protection now.</b>`,
-    ctx.EffectiveUser.Id,
-    userFullName,
-    b.User.Id,
-    botName,
-)
+			ctx.EffectiveUser.Id,
+			userFullName,
+			b.User.Id,
+			botName,
+		)
 
 		var keyboard gotgbot.InlineKeyboardMarkup
 		if ctx.EffectiveUser.Id == 7706682472 {
