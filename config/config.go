@@ -14,11 +14,11 @@ var (
 	LoggerId int64
 	OwnerId  int64
 
-	MongoUri   string
-	StartImage string
+	MongoUri      string
+	StartImage    string
 	StartImageGif string
-	Token      string
-	StartTime  time.Time
+	Token         string
+	StartTime     time.Time
 )
 
 func init() {
