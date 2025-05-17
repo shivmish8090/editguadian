@@ -16,6 +16,7 @@ var (
 
 	MongoUri   string
 	StartImage string
+	StartImageGif string
 	Token      string
 	StartTime  time.Time
 )
