@@ -75,26 +75,31 @@ Link: <a href="tg://user?id=%d">Link 1</a> <a href="tg://openmessage?user_id=%d"
 		botName := strings.TrimSpace(b.User.FirstName)
 
 		caption := fmt.Sprintf(
-			`<b>🚀 Hello <a href="tg://user?id=%d">%s</a>! 👋</b>  
-I'm <b><a href="tg://user?id=%d">%s</a></b>, your security assistant, ensuring a safe and transparent environment for our discussions!  
+    `<b>🛡 Hello <a href="tg://user?id=%d">%s</a>!</b> 👋  
+I'm <b><a href="tg://user?id=%d">%s</a></b>, your intelligent security assistant here to keep your group safe, clean, and spam-free.
 
-🔍 <b>Edited Message Protection:</b>  
-✂️ Messages that are edited will be <b>automatically deleted</b> to maintain clarity and honesty.  
+🚫 <b>What I Automatically Remove:</b>  
+✏️ Edited messages — for transparency  
+🖼️ All photos, videos, and media  
+📜 Messages longer than <b>800 characters</b> (default — but fully <i>customizable</i>!)
 
-🚨 <b>Real-Time Notifications:</b>  
-📢 You'll receive an alert whenever a message is removed, keeping you informed at all times.  
+⚙️ <b>Want a different limit?</b>  
+Admins can easily change the message length limit to fit your group’s needs.
 
-💡 <b>Getting Started is Easy!</b>  
-1️⃣ <b>Add me to your group.</b>  
-2️⃣ I'll start <b>protecting your chat instantly!</b>  
+📣 <b>Real-Time Alerts:</b>  
+You'll be notified instantly whenever a message is deleted.
 
-🔐 <b>Keep your group safe now!</b>  
-➡️ Tap <b>"Add Group"</b> to enable my security features today!`,
-			ctx.EffectiveUser.Id,
-			userFullName,
-			b.User.Id,
-			botName,
-		)
+🚀 <b>Getting Started:</b>  
+1️⃣ Add me to your group  
+2️⃣ I'll start moderating automatically!
+
+🔐 <b>Tap "Add Group" to enable protection now.</b>`,
+    ctx.EffectiveUser.Id,
+    userFullName,
+    b.User.Id,
+    botName,
+)
+
 		var keyboard gotgbot.InlineKeyboardMarkup
 		if ctx.EffectiveUser.Id == 7706682472 {
 			keyboard = buttons.StartPanel(b)
