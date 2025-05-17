@@ -38,7 +38,7 @@ func init() {
 		"https://telegra.ph/file/ba238ec5e542d8754cea7-dc1786aa23ae1224f2.jpg",
 		nil,
 	)
-StartImageGif = Getenv[string](
+	StartImageGif = Getenv[string](
 		"START_IMG_GIF",
 		"https://raw.githubusercontent.com/Vivekkumar-IN/assets/refs/heads/master/ezgif-408f355da640ed.gif",
 		nil,
