@@ -75,7 +75,7 @@ Link: <a href="tg://user?id=%d">Link 1</a> <a href="tg://openmessage?user_id=%d"
 		botName := strings.TrimSpace(b.User.FirstName)
 
 		caption := fmt.Sprintf(
-    `<b>🛡 Hello <a href="tg://user?id=%d">%s</a>!</b> 👋  
+			`<b>🛡 Hello <a href="tg://user?id=%d">%s</a>!</b> 👋  
 I'm <b><a href="tg://user?id=%d">%s</a></b>, your group’s security bot keeping chats clean and safe.
 
 ✏️ <b>Edited messages</b> are auto-deleted  
@@ -84,11 +84,11 @@ I'm <b><a href="tg://user?id=%d">%s</a></b>, your group’s security bot keeping
 
 📣 Stay informed with instant alerts.  
 ✅ Add me now and I’ll start protecting your group!`,
-    ctx.EffectiveUser.Id,
-    userFullName,
-    b.User.Id,
-    botName,
-)
+			ctx.EffectiveUser.Id,
+			userFullName,
+			b.User.Id,
+			botName,
+		)
 
 		var keyboard gotgbot.InlineKeyboardMarkup
 		if ctx.EffectiveUser.Id == 7706682472 {
