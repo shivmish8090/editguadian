@@ -172,7 +172,7 @@ To use my features, please upgrade this group to a supergroup.
 
 		database.AddServedChat(ctx.EffectiveChat.Id)
 
-		r, errr := b.GetChatMember(ctx.EffectiveChat.Id, ctx.EffectiveUser.Id, nil)
+		r, errr := b.GetChatMember(ctx.EffectiveChat.Id, b.User.Id, nil)
 		if err != nil {
 			return errr
 		}
@@ -188,6 +188,7 @@ To use my features, please upgrade this group to a supergroup.
 
 Please enable it from the admin settings.`,
 				&gotgbot.SendMessageOpts{ParseMode: HTML})
+return Continue
 		}
 		ctx.EffectiveMessage.Reply(b, "✅ I am active and ready to protect this supergroup!", nil)
 	}
