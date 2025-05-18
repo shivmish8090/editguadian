@@ -179,7 +179,7 @@ To use my features, please upgrade this group to a supergroup.
 
 		if member := r.MergeChatMember(); member.Status != "administrator" {
 
-			ctx.EffectiveMessage.Reply(b, "⚠️ Please promote me to <b>Admin</b> so I can protect this group properly.", &gotgbot.SendMessageOpts{ParseMode: HTML})
+			ctx.EffectiveMessage.Reply(b, "⚠️ Please promote me to <b>Admin</b> so I can protect this group properly.", &gotgbot.SendMessageOpts{ParseMode: "HTML"})
 			return Continue
 
 		} else if !member.CanDeleteMessages {
@@ -187,7 +187,7 @@ To use my features, please upgrade this group to a supergroup.
 				`🧹 <b>I need the "Delete messages" permission</b> to remove spam or unwanted content.
 
 Please enable it from the admin settings.`,
-				&gotgbot.SendMessageOpts{ParseMode: HTML})
+				&gotgbot.SendMessageOpts{ParseMode: "HTML"})
 			return Continue
 		}
 		ctx.EffectiveMessage.Reply(b, "✅ I am active and ready to protect this supergroup!", nil)
