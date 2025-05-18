@@ -16,25 +16,21 @@ func init() {
 }
 
 func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
+
+m := ctx.EffectiveMessage
+
 	if !slices.Contains(config.OwnerId, ctx.EffectiveUser.Id) {
 		return Continue
 	}
 
-	photos := ctx.EffectiveMessage.Photo
+	photo := m.Photo[len(m.Photo)-1]
 
-	var msg string
-	for _, p := range photos {
-
-		file, err := b.GetFile(p.FileId, nil)
+file, err := b.GetFile(photo.FileId, nil)
 		if err != nil {
 			return err
 		}
 
-		msg += fmt.Sprintf("%s\n", file.URL(b, nil))
-
-	}
-
-	ctx.EffectiveMessage.Reply(b, msg, nil)
+	ctx.EffectiveMessage.Reply(b, file.URL, nil)
 
 	return Continue
 }
