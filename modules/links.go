@@ -7,7 +7,7 @@ if m.Entities == nil {
 return false
 }
 
-if slices.ContainsFunc(m.Entities, func(entity gotgbot.MessageEntity) bool {
+return slices.ContainsFunc(m.Entities, func(entity gotgbot.MessageEntity) bool {
 		return slices.Contains([]string{"text_link", "url"},entity.Type) 
 	})
 
