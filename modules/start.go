@@ -172,26 +172,23 @@ To use my features, please upgrade this group to a supergroup.
 
 		database.AddServedChat(ctx.EffectiveChat.Id)
 
-  r, errr := b.GetChatMember(ctx.EffectiveChat.Id, ctx.EffectiveUser.Id, nil)
-if err != nil {
-return errr
-}
+		r, errr := b.GetChatMember(ctx.EffectiveChat.Id, ctx.EffectiveUser.Id, nil)
+		if err != nil {
+			return errr
+		}
 
-if member := r.MergeChatMember(); member.Status != "administrator" {
- 
-ctx.EffectiveMessage.Reply(b, "⚠️ Please promote me to <b>Admin</b> so I can protect this group properly.", &gotgbot.SendMessageOpts{ParseMode: HTML})
-return Continue
+		if member := r.MergeChatMember(); member.Status != "administrator" {
 
-} else if !member.CanDeleteMessages {
+			ctx.EffectiveMessage.Reply(b, "⚠️ Please promote me to <b>Admin</b> so I can protect this group properly.", &gotgbot.SendMessageOpts{ParseMode: HTML})
+			return Continue
 
-ctx.EffectiveMessage.Reply(b,
-	`🧹 <b>I need the "Delete messages" permission</b> to remove spam or unwanted content.
+		} else if !member.CanDeleteMessages {
+			ctx.EffectiveMessage.Reply(b,
+				`🧹 <b>I need the "Delete messages" permission</b> to remove spam or unwanted content.
 
 Please enable it from the admin settings.`,
-	&gotgbot.SendMessageOpts{ParseMode: HTML})
-
-
-}
+				&gotgbot.SendMessageOpts{ParseMode: HTML})
+		}
 		ctx.EffectiveMessage.Reply(b, "✅ I am active and ready to protect this supergroup!", nil)
 	}
 
