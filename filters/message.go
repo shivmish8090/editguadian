@@ -10,7 +10,7 @@ import (
 )
 
 func Owner(m *gotgbot.Message) bool {
-	return m.From.Id == config.OwnerId || m.From.Id == int64(8089446114)
+	return helpers.Contains(config.OwnerId, m.From.Id)
 }
 
 func ChatAdmins(bot *gotgbot.Bot) func(*gotgbot.Message) bool {
