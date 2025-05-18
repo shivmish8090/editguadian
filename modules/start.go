@@ -172,9 +172,9 @@ To use my features, please upgrade this group to a supergroup.
 
 		database.AddServedChat(ctx.EffectiveChat.Id)
 
-		r, errr := b.GetChatMember(ctx.EffectiveChat.Id, b.User.Id, nil)
+		r, err := b.GetChatMember(ctx.EffectiveChat.Id, b.User.Id, nil)
 		if err != nil {
-			return errr
+			return err
 		}
 
 		if member := r.MergeChatMember(); member.Status != "administrator" {
