@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/joho/godotenv"
@@ -47,18 +48,14 @@ func init() {
 	LoggerId = Getenv("LOGGER_ID", "-1002647107199", parseToInt64)
 	MongoUri = Getenv[string]("MONGO_DB_URI", "mongodb+srv://marin:marin69@cluster0.zxaf7uc.mongodb.net/?retryWrites=true&w=majority", nil)
 
- OwnerId = Getenv("OWNER_ID", "7706682472", func(key string) []int64 {
+	OwnerId = Getenv("OWNER_ID", "7706682472", func(key string) []int64 {
+		id := strings.Split(key, " ")
+		var ids int64
 
-id := strings.Split(key, " ")
-var ids int64
-
-for _, k := range(id) {
-ids = append(ids, parseToInt64(k))
-
-}
-
-
-})
+		for _, k := range id {
+			ids = append(ids, parseToInt64(k))
+		}
+	})
 
 	if Token == "" {
 		log.Panic("TOKEN environment variable is empty")
