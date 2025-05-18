@@ -40,4 +40,3 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 
 	return Continue
 }
-
