@@ -24,4 +24,5 @@ func DeleteLinkMessage(b *gotgbot.Bot, ctx *ext.Context) error {
 	m := ctx.EffectiveMessage
 
 	m.Delete(b, nil)
+return nil
 }
