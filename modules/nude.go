@@ -14,7 +14,7 @@ import (
 )
 
 func init() {
-	Register(handlers.NewMessage(func(m *gotgbot.Message) bool { return m.Photo != nil }, DeleteNudePhoto))
+	Register(handlers.NewMessage(func(m *gotgbot.Message) bool { return m.Photo != nil || m.Sticker != nil }, DeleteNudePhoto))
 }
 
 func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
@@ -24,9 +24,15 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 		return Continue
 	}
 
-	photo := m.Photo[len(m.Photo)-1]
+var fileid string
+if m.Photo != nil {
+	fileid = m.Photo[len(m.Photo)-1].FileId
 
-	file, err := b.GetFile(photo.FileId, nil)
+} else {
+fileid = m.Sticker.FileId
+
+}
+	file, err := b.GetFile(fileid, nil)
 	if err != nil {
 		return err
 	}
