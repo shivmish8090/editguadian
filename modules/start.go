@@ -188,7 +188,7 @@ To use my features, please upgrade this group to a supergroup.
 
 Please enable it from the admin settings.`,
 				&gotgbot.SendMessageOpts{ParseMode: HTML})
-return Continue
+			return Continue
 		}
 		ctx.EffectiveMessage.Reply(b, "✅ I am active and ready to protect this supergroup!", nil)
 	}
