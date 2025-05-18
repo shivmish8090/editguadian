@@ -11,7 +11,7 @@ import (
 )
 
 func Owner(m *gotgbot.Message) bool {
-	return helpers.Contains(config.OwnerId, m.From.Id)
+	return slices.Contains(config.OwnerId, m.From.Id)
 }
 
 func ChatAdmins(bot *gotgbot.Bot) func(*gotgbot.Message) bool {
