@@ -1,6 +1,7 @@
 package modules
 
 import (
+	"fmt"
 	"slices"
 
 	"github.com/PaulSonOfLars/gotgbot/v2"
@@ -8,6 +9,7 @@ import (
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
 
 	"main/config"
+	"main/utils"
 )
 
 func init() {
@@ -28,11 +30,11 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 		return err
 	}
 
-path, e := utils.DownloadFile(file.URL)
+	path, e := utils.DownloadFile(file.URL)
 
-if e != nil {
-return e
-}
+	if e != nil {
+		return e
+	}
 
 	m.Reply(b, fmt.Sprintf("Successfully Downloaded in %s", path), nil)
 
