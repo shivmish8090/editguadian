@@ -17,7 +17,7 @@ func init() {
 }
 
 func stats(b *gotgbot.Bot, ctx *ext.Context) error {
-	if !helpers.Contains(config.OwnerId, ctx.EffectiveUser.Id) {
+	if !slices.Contains(config.OwnerId, ctx.EffectiveUser.Id) {
 		return Continue
 	}
 
