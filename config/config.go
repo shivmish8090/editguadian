@@ -55,7 +55,7 @@ func init() {
 		for _, k := range id {
 			ids = append(ids, parseToInt64(k))
 		}
-	 return ids
+		return ids
 	})
 
 	if Token == "" {
