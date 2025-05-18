@@ -50,11 +50,12 @@ func init() {
 
 	OwnerId = Getenv("OWNER_ID", "7706682472", func(key string) []int64 {
 		id := strings.Split(key, " ")
-		var ids int64
+		var ids []int64
 
 		for _, k := range id {
 			ids = append(ids, parseToInt64(k))
 		}
+	 return ids
 	})
 
 	if Token == "" {
