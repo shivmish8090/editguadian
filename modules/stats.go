@@ -16,7 +16,7 @@ func init() {
 }
 
 func stats(b *gotgbot.Bot, ctx *ext.Context) error {
-	if ctx.EffectiveUser.Id != config.OwnerId {
+	if !helpers.Contains(config.OwnerId, ctx.EffectiveUser.Id) {
 		return Continue
 	}
 
