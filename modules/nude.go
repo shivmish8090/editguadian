@@ -34,10 +34,10 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 	var path string
 	path, err = utils.DownloadFile(file.URL(b, nil))
 
-	if e != nil {
-		return e
+	if err != nil {
+		return err
 	}
-	var isNude string
+	var isNude bool
 
 	isNude, err = nude.IsNude(path)
 	if err != nil {
