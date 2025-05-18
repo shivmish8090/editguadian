@@ -30,13 +30,19 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 		return err
 	}
 
-	path, e := utils.DownloadFile(file.URL(b, nil))
+var path string
+	path, err = utils.DownloadFile(file.URL(b, nil))
 
 	if e != nil {
 		return e
 	}
+var isNude string
 
-	m.Reply(b, fmt.Sprintf("Successfully Downloaded in %s", path), nil)
+isNude, err = nude.IsNude(path)
+	if err != nil {
+		return err
+	}
+	m.Reply(b, fmt.Sprintf("Your image contains nudity %t", isNude), nil)
 
 	return Continue
 }
