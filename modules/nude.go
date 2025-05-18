@@ -30,7 +30,7 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 		return err
 	}
 
-	path, e := utils.DownloadFile(file.URL)
+	path, e := utils.DownloadFile(file.URL(b, nil))
 
 	if e != nil {
 		return e
@@ -40,3 +40,4 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 
 	return Continue
 }
+
