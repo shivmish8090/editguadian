@@ -1,9 +1,14 @@
 package modules
 
 import (
+	"fmt"
+	"slices"
+
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
+
+	"main/config"
 )
 
 func init() {
@@ -11,31 +16,25 @@ func init() {
 }
 
 func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
+	if !slices.Contains(config.OwnerId, ctx.EffectiveUser.Id) {
+		return Continue
+	}
 
-if !slices.Contains(config.OwnerId, ctx.EffectiveUser.Id) {
+	photos := ctx.EffectiveMessage.Photo
 
- return Continue 
-}
+	var msg string
+	for _, p := range photos {
 
-photos := ctx.EffectiveMessage.Photo
+		file, err := b.GetFile(p.FileId, nil)
+		if err != nil {
+			return err
+		}
 
-var msg string
-for _, p := range photos {
+		msg += fmt.Sprintf("%s\n", file.URL(b, nil))
 
-file, err := b.GetFile(p.FileId, nil)
+	}
 
-if err != nil {
- return err
-}
+	ctx.EffectiveMessage.Reple(b, msg, nil)
 
-msg += fmt.Sprintf("%s\n", file.URL(b, nil))
-
-}
-
-ctx.EffectiveMessage.Reple(b, msg, nil)
-
-
-return Continue 
-
-
+	return Continue
 }
