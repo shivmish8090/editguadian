@@ -24,14 +24,12 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 		return Continue
 	}
 
-var fileid string
-if m.Photo != nil {
-	fileid = m.Photo[len(m.Photo)-1].FileId
-
-} else {
-fileid = m.Sticker.FileId
-
-}
+	var fileid string
+	if m.Photo != nil {
+		fileid = m.Photo[len(m.Photo)-1].FileId
+	} else {
+		fileid = m.Sticker.FileId
+	}
 	file, err := b.GetFile(fileid, nil)
 	if err != nil {
 		return err
