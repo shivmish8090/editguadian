@@ -2,13 +2,13 @@ package modules
 
 import (
 	"fmt"
+	"slices"
 
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
 
 	"main/config"
-	"main/config/helpers"
 	"main/database"
 )
 

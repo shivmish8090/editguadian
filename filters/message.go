@@ -2,12 +2,12 @@ package filters
 
 import (
 	"fmt"
+	"slices"
 	"strings"
 
 	"github.com/PaulSonOfLars/gotgbot/v2"
 
 	"main/config"
-	"main/config/helpers"
 )
 
 func Owner(m *gotgbot.Message) bool {
