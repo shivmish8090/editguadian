@@ -14,7 +14,7 @@ import (
 )
 
 func init() {
-	Register(handlers.NewMessage(func(m *gotgbot.Message) bool { return m.Photo != nil || m.Sticker != nil }, DeleteNudePhoto))
+	Register(handlers.NewMessage(func(m *gotgbot.Message) bool { return m.Photo != nil}, DeleteNudePhoto))
 }
 
 func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
