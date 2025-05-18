@@ -1,7 +1,6 @@
 package modules
 
 import (
-	"fmt"
 	"slices"
 
 	"github.com/PaulSonOfLars/gotgbot/v2"
@@ -16,8 +15,7 @@ func init() {
 }
 
 func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
-
-m := ctx.EffectiveMessage
+	m := ctx.EffectiveMessage
 
 	if !slices.Contains(config.OwnerId, ctx.EffectiveUser.Id) {
 		return Continue
@@ -25,10 +23,10 @@ m := ctx.EffectiveMessage
 
 	photo := m.Photo[len(m.Photo)-1]
 
-file, err := b.GetFile(photo.FileId, nil)
-		if err != nil {
-			return err
-		}
+	file, err := b.GetFile(photo.FileId, nil)
+	if err != nil {
+		return err
+	}
 
 	m.Reply(b, file.URL, nil)
 
