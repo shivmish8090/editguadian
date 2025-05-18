@@ -225,7 +225,7 @@ func sendEchoMessage(b *gotgbot.Bot, ctx *ext.Context, text string) error {
 		authorURL = fmt.Sprintf("https://t.me/%s?start=info_%d", b.User.Username, User.Id)
 	}
 
-	url, err := telegraph.CreatePage(text, userFullName, authorURL)
+	url, err := helpers.CreateTelegraphPage(text, userFullName, authorURL)
 	if err != nil {
 		return err
 	}
