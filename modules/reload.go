@@ -43,7 +43,7 @@ func ReloadHandler(b *gotgbot.Bot, ctx *ext.Context) error {
 	config.Cache.Store(fmt.Sprintf("admins:%d", chatId), admins)
 
 	var text string
-	if helpers.Contains(admins, ctx.EffectiveUser.Id) {
+	if slices.Contains(admins, ctx.EffectiveUser.Id) {
 		text = "✅ Successfully refreshed the cache of chat admins!"
 	} else {
 		text = "⚠️ Tried refreshing the admin cache... but again i can you are not an admin!"
