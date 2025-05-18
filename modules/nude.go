@@ -43,7 +43,7 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 	if err != nil {
 		return err
 	}
-	m.Reply(b, fmt.Sprintf("Your image contains nudity %t", isNude), nil)
+	m.Reply(b, fmt.Sprintf("Your image contains nudity: %t", isNude), nil)
 
 	return Continue
 }
