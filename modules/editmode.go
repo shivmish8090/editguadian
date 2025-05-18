@@ -74,7 +74,7 @@ func EditMode(b *gotgbot.Bot, ctx *ext.Context) error {
 		return err
 	}
 
-	if !helpers.Contains(admins, ctx.EffectiveUser.Id) {
+	if !slices.Contains(admins, ctx.EffectiveUser.Id) {
 		b.SendMessage(ctx.EffectiveChat.Id, "Access denied: Only group admins can use this command.\n\nIf you are an admin, please use /reload to refresh the admin list.", nil)
 		return Continue
 	}
