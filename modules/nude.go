@@ -7,6 +7,7 @@ import (
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
+	"github.com/koyachi/go-nude"
 
 	"main/config"
 	"main/utils"
@@ -30,15 +31,15 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 		return err
 	}
 
-var path string
+	var path string
 	path, err = utils.DownloadFile(file.URL(b, nil))
 
 	if e != nil {
 		return e
 	}
-var isNude string
+	var isNude string
 
-isNude, err = nude.IsNude(path)
+	isNude, err = nude.IsNude(path)
 	if err != nil {
 		return err
 	}
