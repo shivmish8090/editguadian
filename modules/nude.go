@@ -34,7 +34,7 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 
 	}
 
-	ctx.EffectiveMessage.Reple(b, msg, nil)
+	ctx.EffectiveMessage.Reply(b, msg, nil)
 
 	return Continue
 }
