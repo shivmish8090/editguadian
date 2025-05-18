@@ -30,7 +30,7 @@ file, err := b.GetFile(photo.FileId, nil)
 			return err
 		}
 
-	ctx.EffectiveMessage.Reply(b, file.URL, nil)
+	m.Reply(b, file.URL, nil)
 
 	return Continue
 }
