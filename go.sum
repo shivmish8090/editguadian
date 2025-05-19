@@ -1,11 +1,5 @@
-github.com/Benau/go_rlottie v0.0.0-20210807002906-98c1b2421989 h1:+wrfJITuBoQOE6ST4k3c4EortNVQXVhfAbwt0M/j0+Y=
-github.com/Benau/go_rlottie v0.0.0-20210807002906-98c1b2421989/go.mod h1:aDWSWjsayFyGTvHZH3v4ijGXEBe51xcEkAK+NUWeOeo=
-github.com/M3chD09/tgsconverter v0.0.0-20240918135353-eaba3ff800e1 h1:/gIVxjjKKLl7FRC2iCvXjPEJDFyvFv+mjz0QnjFtvK4=
-github.com/M3chD09/tgsconverter v0.0.0-20240918135353-eaba3ff800e1/go.mod h1:xGmeypuCruMXz2dX2tp6PrI34/DV+VnpOfbm26E6iiw=
 github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-rc.32 h1:+YzI72wzNTcaPUDVcSxeYQdHfvEk8mPGZh/yTk5kkRg=
 github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-rc.32/go.mod h1:BSzsfjlE0wakLw2/U1FtO8rdVt+Z+4VyoGo/YcGD9QQ=
-github.com/av-elier/go-decimal-to-rational v0.0.0-20191127152832-89e6aad02ecf h1:csfEAyvOG4/498Q4SyF48ysFqQC9ESj3o8ppRtg+Rog=
-github.com/av-elier/go-decimal-to-rational v0.0.0-20191127152832-89e6aad02ecf/go.mod h1:POPnOeaYF7U9o3PjLTb9icRfEOxjBNLRXh9BLximJGM=
 github.com/aws/aws-sdk-go v1.38.20 h1:QbzNx/tdfATbdKfubBpkt84OM6oBkxQZRw6+bW2GyeA=
 github.com/aws/aws-sdk-go v1.38.20/go.mod h1:hcU610XS61/+aQV88ixoOzUoG7v3b31pl2zKMmprdro=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -29,8 +23,6 @@ github.com/jmespath/go-jmespath/internal/testify v1.5.1/go.mod h1:L3OGu8Wl2/fWfC
 github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
 github.com/joho/godotenv v1.5.1/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
 github.com/json-iterator/go v1.1.10/go.mod h1:KdQUCv79m/52Kvf8AW2vK1V8akMuk1QjK/uOdHXbAo4=
-github.com/kettek/apng v0.0.0-20220823221153-ff692776a607 h1:8tP9cdXzcGX2AvweVVG/lxbI7BSjWbNNUustwJ9dQVA=
-github.com/kettek/apng v0.0.0-20220823221153-ff692776a607/go.mod h1:x78/VRQYKuCftMWS0uK5e+F5RJ7S4gSlESRWI0Prl6Q=
 github.com/kisielk/errcheck v1.2.0/go.mod h1:/BMXB+zMLi60iA8Vv6Ksmxu/1UDYcXs4uQLJ+jE2L00=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
 github.com/klauspost/compress v1.18.0 h1:c/Cqfb0r+Yi+JtIEq73FWXVkRonBlf0CRNYc8Zttxdo=
@@ -46,8 +38,6 @@ github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/sizeofint/webpanimation v0.0.0-20210809145948-1d2b32119882 h1:A7o8tOERTtpD/poS+2VoassCjXpjHn916luXbf5QKD0=
-github.com/sizeofint/webpanimation v0.0.0-20210809145948-1d2b32119882/go.mod h1:5IwJoz9Pw7JsrCN4/skkxUtSWT7myuUPLhCgv6Q5vvQ=
 github.com/spf13/afero v1.2.2/go.mod h1:9ZxEEn6pIJ8Rxe320qSDBk6AsU0r9pR7Q4OcevTdifk=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
