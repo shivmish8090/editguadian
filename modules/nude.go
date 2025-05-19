@@ -2,7 +2,6 @@ package modules
 
 import (
 	"fmt"
-	"log"
 	"slices"
 
 	"github.com/PaulSonOfLars/gotgbot/v2"
@@ -43,31 +42,31 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 		return err
 	}
 
-	if m.Sticker != nil && !m.Sticker.IsVideo && !m.Sticker.IsAnimated {
+	if m.Sticker != nil && !m.Sticker.IsVido && !m.Sticker.IsAnimated {
 		err = utils.Webp2Png(path)
 		if err != nil {
 			return err
 		}
 		images = append(images, path)
 	} else if m.Sticker.IsVideo && !m.Sticker.IsAnimated {
-		images, err = utils.ExtractFrames(path)
+		images, err = utils.ExtractFrames(path, 5)
 		if err != nil {
-			return err
+		return err
 		}
 	} else {
-		images = append(images, path)
+	  images = append(images, path)
 	}
 
 	var isNude bool
 
-	isNude = slices.ContainsFunc(images, func(p string) bool {
-		isn, err := nude.IsNude(p)
-		if err != nil {
-			log.Println(err)
-			panic(err)
-		}
-		return isn
-	})
+	isNude =  slices.ContainsFunc(images, func(p string) bool {
+                        isn, err := nude.IsNude(p)
+                        if err != nil {
+                          panic(err)
+                        }
+                        return isn
+                        
+                })
 	m.Reply(b, fmt.Sprintf("Your image contains nudity: %t", isNude), nil)
 
 	return Continue

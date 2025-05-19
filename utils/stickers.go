@@ -39,39 +39,32 @@ func Webp2Png(webpPath string) error {
 	return nil
 }
 
-func ExtractFrames(inputPath string) ([]string, error) {
-	// Prepare output paths in the same directory
+func ExtractFrames(inputPath string, count int) ([]string, error) {
+  
 	base := filepath.Base(inputPath)
 	name := base[:len(base)-len(filepath.Ext(base))]
 
-	midImage := fmt.Sprintf("%s_mid.png", name)
-	endImage := fmt.Sprintf("%s_end.png", name)
+	rand.Seed(time.Now().UnixNano())
 
-	// Extract frame around 0.8s (middle zone)
-	err := ffmpeg.Input(inputPath, ffmpeg.KwArgs{"ss": 0.8}).
-		Output(midImage, ffmpeg.KwArgs{"frames:v": 1}).
-		OverWriteOutput().
-		Run()
-	if err != nil {
-		return nil, fmt.Errorf("failed to extract middle frame: %w", err)
+	var extracted []string
+	for i := 0; i < count; i++ {
+		randomTime := rand.Float64() * 3 // random between 0s and 3s
+		imageName := fmt.Sprintf("%s_%d.png", name, i)
+
+		ffmpeg.Input(inputPath, ffmpeg.KwArgs{"ss": fmt.Sprintf("%.2f", randomTime)}).
+			Output(imageName, ffmpeg.KwArgs{"frames:v": 1}).
+			OverWriteOutput().
+			Run()
+
+		// Add only if file was created
+		if _, statErr := os.Stat(imageName); statErr == nil {
+			extracted = append(extracted, imageName)
+		}
 	}
 
-	// Extract frame near end (~0.1s before)
-	err = ffmpeg.Input(inputPath, ffmpeg.KwArgs{"sseof": -0.1}).
-		Output(endImage, ffmpeg.KwArgs{"frames:v": 1}).
-		OverWriteOutput().
-		Run()
-	if err != nil {
-		return nil, fmt.Errorf("failed to extract end frame: %w", err)
+	if len(extracted) == 0 {
+		return nil, fmt.Errorf("no images were extracted")
 	}
 
-	// Check both files exist
-	if _, err := os.Stat(midImage); os.IsNotExist(err) {
-		return nil, fmt.Errorf("middle image file not created")
-	}
-	if _, err := os.Stat(endImage); os.IsNotExist(err) {
-		return nil, fmt.Errorf("end image file not created")
-	}
-
-	return []string{midImage, endImage}, nil
+	return extracted, nil
 }
