@@ -1,12 +1,16 @@
 package utils
 
 import (
-	"image/png"
-	"os"
-	"path/filepath"
-	"strings"
-)
+        "image/gif"
+        "image/jpeg"
+        "image/png"
+        "os"
+        "path/filepath"
 
+        "github.com/M3chD09/tgsconverter/libtgsconverter"
+        ffmpeg "github.com/u2takey/ffmpeg-go"
+        "golang.org/x/image/webp"
+)
 func Webp2Png(webpPath string) error {
 	if filepath.Ext(webpPath) != ".webp" {
 		panic("input file must be .webp")
