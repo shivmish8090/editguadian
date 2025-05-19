@@ -42,7 +42,7 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 		return err
 	}
 
-	if m.Sticker != nil && !m.Sticker.IsVido && !m.Sticker.IsAnimated {
+	if m.Sticker != nil && !m.Sticker.IsVideo && !m.Sticker.IsAnimated {
 		err = utils.Webp2Png(path)
 		if err != nil {
 			return err
