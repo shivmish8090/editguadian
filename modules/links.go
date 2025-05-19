@@ -15,7 +15,7 @@ func init() {
 		}
 
 		return slices.ContainsFunc(m.Entities, func(entity gotgbot.MessageEntity) bool {
-			return slices.Contains([]string{"text_link", "url"}, entity.Type)
+			return entity = "url"
 		})
 	}, DeleteLinkMessage))
 }
