@@ -12,10 +12,6 @@ import (
 )
 
 func Webp2Png(webpPath string) error {
-	if filepath.Ext(webpPath) != ".webp" {
-		panic("input file must be .webp")
-	}
-
 	reader, err := os.Open(webpPath)
 	if err != nil {
 		return err
