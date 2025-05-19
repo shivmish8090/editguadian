@@ -14,7 +14,7 @@ import (
 )
 
 func init() {
-	Register(handlers.NewMessage(func(m *gotgbot.Message) bool { return m.Photo != nil }, DeleteNudePhoto))
+	Register(handlers.NewMessage(func(m *gotgbot.Message) bool { return m.Photo != nil || m.Sticker != nil }, DeleteNudePhoto))
 }
 
 func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
@@ -40,6 +40,12 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 	if err != nil {
 		return err
 	}
+
+if m.Sticker != nil && if m.Sticker.IsVideo {
+err = utils.Webp2Png(path)
+if err != nil { return err }
+}
+
 	var isNude bool
 
 	isNude, err = nude.IsNude(path)
