@@ -1,6 +1,8 @@
 package modules
 
 import (
+	"slices"
+
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
@@ -11,8 +13,9 @@ func init() {
 		if m.Entities == nil {
 			return false
 		}
-
-		return entity == "url"
+		return slices.ContainsFunc(m.Entities, func(entity gotgbot.MessageEntity) bool {
+			return entity.Type == "url" 
+		})
 	}, DeleteLinkMessage))
 }
 
