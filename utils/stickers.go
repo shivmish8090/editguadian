@@ -1,5 +1,11 @@
 package utils
 
+import (
+	"image/png"
+	"os"
+	"path/filepath"
+	"strings"
+)
 
 func Webp2Png(webpPath string) error {
 	if filepath.Ext(webpPath) != ".webp" {
