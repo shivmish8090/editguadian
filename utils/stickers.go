@@ -3,9 +3,11 @@ package utils
 import (
 	"fmt"
 	"image/png"
+	"math/rand"
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 
 	ffmpeg "github.com/u2takey/ffmpeg-go"
 	"golang.org/x/image/webp"
@@ -40,7 +42,6 @@ func Webp2Png(webpPath string) error {
 }
 
 func ExtractFrames(inputPath string, count int) ([]string, error) {
-  
 	base := filepath.Base(inputPath)
 	name := base[:len(base)-len(filepath.Ext(base))]
 
