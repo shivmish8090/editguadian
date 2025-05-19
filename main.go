@@ -61,7 +61,7 @@ dispatcher.AddHandler(handlers.NewMessage(filters.And(filters.Invert(filters.Cha
                 }
                 return slices.ContainsFunc(m.Entities, func(entity gotgbot.MessageEntity) bool {
                         return entity.Type == "url"
-                }))
+                })))
         }, modules.DeleteLinkMessage))
 
 	// Allowed updates
