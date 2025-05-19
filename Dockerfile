@@ -14,7 +14,8 @@ FROM debian:bullseye-slim
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ca-certificates && \
+    ca-certificates \
+    ffmpeg && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /app/app .
