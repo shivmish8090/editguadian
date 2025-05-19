@@ -20,7 +20,9 @@ func Webp2Png(webpPath string) error {
 
 	img, err := webp.Decode(reader)
 	if err != nil {
-		return NewConvertError("webp2png", webpPath, "", err)
+  
+		return fmt.Errorf("Failed to convert webp2png\nWebpPath: %s\nPngPath: %s\nError: %w", webpPath, "", err)
+
 	}
 
 	// Change extension to .png
@@ -33,7 +35,7 @@ func Webp2Png(webpPath string) error {
 
 	err = png.Encode(writer, img)
 	if err != nil {
-		return NewConvertError("webp2png", webpPath, pngPath, err)
+		return fmt.Errorf("Failed to convert webp2png\nWebpPath: %s\nPngPath: %s\nError: %w", webpPath, pngPath, err)
 	}
 
 	return nil
