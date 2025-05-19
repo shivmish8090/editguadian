@@ -2,6 +2,7 @@ package modules
 
 import (
 	"fmt"
+	"log"
 	"slices"
 
 	"github.com/PaulSonOfLars/gotgbot/v2"
@@ -62,7 +63,7 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 	isNude = slices.ContainsFunc(images, func(p string) bool {
 		isn, err := nude.IsNude(p)
 		if err != nil {
-log.Println(err)
+			log.Println(err)
 			panic(err)
 		}
 		return isn
