@@ -1,11 +1,8 @@
 package modules
 
 import (
-	"slices"
-
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
-	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
 )
 
 func DeleteLinkMessage(b *gotgbot.Bot, ctx *ext.Context) error {
