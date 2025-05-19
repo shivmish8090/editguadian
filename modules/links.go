@@ -14,7 +14,7 @@ func init() {
 			return false
 		}
 
-		return entity = "url"
+		return entity == "url"
 	}, DeleteLinkMessage))
 }
 
