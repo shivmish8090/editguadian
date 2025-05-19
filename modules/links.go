@@ -29,7 +29,7 @@ if err != nil {
 }
 b.SendMessage(
     m.Chat.Id,
-    "⚠️ Direct URLs aren't allowed.\nUse format: <a href="https://t.me/durov">this</a>",
+    "⚠️ Direct URLs aren't allowed.\nUse format: <a href='https://t.me/durov'>this</a>",
     &gotgbot.SendMessageOpts{ParseMode: "HTML"},
 )
 
