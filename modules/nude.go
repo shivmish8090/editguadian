@@ -36,6 +36,7 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 	}
 
 	var path string
+	var images []string
 	path, err = utils.DownloadFile(file.URL(b, nil))
 	if err != nil {
 		return err
@@ -46,16 +47,26 @@ func DeleteNudePhoto(b *gotgbot.Bot, ctx *ext.Context) error {
 		if err != nil {
 			return err
 		}
+		images = append(images, path)
 	} else if m.Sticker.IsVideo && !m.Sticker.IsAnimated {
-		return nil
+		images, err = utils.ExtractFrames(path)
+		if err != nil {
+		return err
+		}
+	} else {
+	  images = append(images, path)
 	}
 
 	var isNude bool
 
-	isNude, err = nude.IsNude(path)
-	if err != nil {
-		return err
-	}
+	isNude =  slices.ContainsFunc(images, func(p string) bool {
+                        isn, err := nude.IsNude(p)
+                        if err != nil {
+                          panic(err)
+                        }
+                        return isn
+                        
+                })
 	m.Reply(b, fmt.Sprintf("Your image contains nudity: %t", isNude), nil)
 
 	return Continue
