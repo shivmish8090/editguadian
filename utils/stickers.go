@@ -20,9 +20,7 @@ func Webp2Png(webpPath string) error {
 
 	img, err := webp.Decode(reader)
 	if err != nil {
-  
 		return fmt.Errorf("Failed to convert webp2png\nWebpPath: %s\nPngPath: %s\nError: %w", webpPath, "", err)
-
 	}
 
 	// Change extension to .png
