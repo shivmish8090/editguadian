@@ -55,13 +55,13 @@ func main() {
 
 	dispatcher.AddHandler(handlers.NewMessage(filters.Invert(filters.ChatAdmins(b)), modules.DeleteLongMessage))
 
-dispatcher.AddHandler(handlers.NewMessage(filters.And(filters.Invert(filters.ChatAdmins(b), func(m *gotgbot.Message) bool {
+dispatcher.AddHandler(handlers.NewMessage(filters.And(filters.Invert(filters.ChatAdmins(b)), func(m *gotgbot.Message) bool {
                 if m.Entities == nil {
                         return false
                 }
                 return slices.ContainsFunc(m.Entities, func(entity gotgbot.MessageEntity) bool {
                         return entity.Type == "url"
-                }))),
+                })),
         }, modules.DeleteLinkMessage))
 
 	// Allowed updates
