@@ -21,6 +21,18 @@ func init() {
 func DeleteLinkMessage(b *gotgbot.Bot, ctx *ext.Context) error {
 	m := ctx.EffectiveMessage
 
-	m.Delete(b, nil)
-	return nil
+	_, err := m.Delete(b, nil)
+
+if err != nil {
+	return err
+
+}
+b.SendMessage(
+    m.Chat.Id,
+    "⚠️ Direct URLs aren't allowed.\nUse format: <a href="https://t.me/durov">this</a>",
+    &gotgbot.SendMessageOpts{ParseMode: "HTML"},
+)
+
+
+return Continue
 }
