@@ -1,5 +1,3 @@
-name: format codes
-
 on:
   push:
     paths:
