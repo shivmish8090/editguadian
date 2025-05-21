@@ -78,7 +78,7 @@ Let me know if you need any help.`,
 }
 
 func ExtractJoinLeftStatusChange(u *gotgbot.ChatMemberUpdated) (bool, bool) {
-	if u.Chat.Type == "channel" {
+	if u.Chat.Type == "channel" || u.Chat.Type == "private" {
 		return false, false
 	}
 
