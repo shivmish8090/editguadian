@@ -1,3 +1,22 @@
+# TODO: Long Message Handling Settings
+## Dismental echo Commands to Implement
+
+- [ ] `/longmode <off|manual|auto>`  
+  - Set how long messages are handled.
+
+- [ ] `/longlimit <number>`  
+  - Set the character limit for long messages (default: 800).
+
+- [ ] `/longsettings`  
+  - Display current mode and limit.
+
+- [ ] `/longreset`  
+  - Reset settings to default:  
+    - Mode: auto  
+    - Limit: 800
+
+---
+
 # 1) Link filter
 - Add support for user can approve some domains
 - Add Support for enable/disable
