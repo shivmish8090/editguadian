@@ -91,7 +91,6 @@ I'm <b><a href="tg://user?id=%d">%s</a></b>, your group’s security bot keeping
 		)
 
 		keyboard := buttons.StartPanel(b)
-		
 
 		if isCallback {
 			_, _, err := ctx.CallbackQuery.Message.EditCaption(b, &gotgbot.EditMessageCaptionOpts{
