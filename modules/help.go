@@ -7,6 +7,8 @@ import (
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers/filters/callbackquery"
+
+	"main/config/buttons"
 )
 
 func init() {
@@ -14,12 +16,11 @@ func init() {
 }
 
 func helpCB(b *gotgbot.Bot, ctx *ext.Context) error {
-btn := &buttons.Button{RowWidth: 2}
-for name, mod := range ModulesHelp {
-btn.Add(name, mod.Callback)
-
-}
-btn.Row("⬅️ Back", "start_callback")
+	btn := &buttons.Button{RowWidth: 2}
+	for name, mod := range ModulesHelp {
+		btn.Add(name, mod.Callback)
+	}
+	btn.Row("⬅️ Back", "start_callback")
 
 	helpText := `📚 <b>Bot Command Help</b>
 
