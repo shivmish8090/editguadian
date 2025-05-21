@@ -1,4 +1,3 @@
 package modules
 
-
-func init(){}
+func init() {}
