@@ -19,7 +19,7 @@ type EchoSettings struct {
 
 const (
 	defaultEchoLimit = 800
-	defaultEchoMode  = "MANUAL"
+	defaultEchoMode  = "AUTO"
 )
 
 func SetEchoSettings(data *EchoSettings) error {
