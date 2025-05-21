@@ -41,12 +41,14 @@ Sends back the provided text. Also allows setting how the bot handles long messa
 }
 
 type warningTracker struct {
-	sync.Mutex
-	chats map[int64]time.Time
+    globalLock sync.Mutex                // Protects access to locks map
+    locks      map[int64]*sync.Mutex     // Per-chat locks
+    chats      map[int64]time.Time       // Last warning per chat
 }
 
 var deleteWarningTracker = warningTracker{
-	chats: make(map[int64]time.Time),
+    locks: make(map[int64]*sync.Mutex),
+    chats: make(map[int64]time.Time),
 }
 
 func EcoHandler(b *gotgbot.Bot, ctx *ext.Context) error {
@@ -185,8 +187,8 @@ func DeleteLongMessage(b *gotgbot.Bot, ctx *ext.Context) error {
 	}
 
 	if done && !isAutomatic {
-		deleteWarningTracker.Lock()
-		defer deleteWarningTracker.Unlock()
+		deleteWarningTracker.Lock(ctx.EffectiveChat.Id)
+		defer deleteWarningTracker.Unlock(ctx.EffectiveChat.Id)
 
 		lastWarning, exists := deleteWarningTracker.chats[ctx.EffectiveChat.Id]
 		if !exists || time.Since(lastWarning) > time.Second {
@@ -252,3 +254,26 @@ func sendEchoMessage(b *gotgbot.Bot, ctx *ext.Context, text string) error {
 	_, err = b.SendMessage(ctx.EffectiveChat.Id, msg, opts)
 	return orCont(err)
 }
+
+func (w *warningTracker) Lock(chatId int64) {
+    w.globalLock.Lock()
+    lock, exists := w.locks[chatId]
+    if !exists {
+        lock = &sync.Mutex{}
+        w.locks[chatId] = lock
+    }
+    w.globalLock.Unlock()
+
+    lock.Lock()
+}
+
+func (w *warningTracker) Unlock(chatId int64) {
+    w.globalLock.Lock()
+    lock := w.locks[chatId]
+    w.globalLock.Unlock()
+
+    lock.Unlock()
+}
+
+
+
