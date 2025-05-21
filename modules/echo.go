@@ -19,7 +19,7 @@ import (
 
 func init() {
 	Register(handlers.NewCommand("echo", EcoHandler))
-	AddHelp("📝 Echo", "echo", `<b>Command:</b> 
+	AddHelp("📝 Long Message", "echo", `<b>Command:</b> 
 <blockquote>/echo &lt;text&gt;
 /echo --set-mode=&lt;off|manual|automatic&gt;
 /echo --set-limit=&lt;number&gt;</blockquote>
