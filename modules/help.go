@@ -14,6 +14,7 @@ func init() {
 }
 
 func helpCB(b *gotgbot.Bot, ctx *ext.Context) error {
+btn := &buttons.Button{}
 	keyboard := gotgbot.InlineKeyboardMarkup{
 		InlineKeyboard: [][]gotgbot.InlineKeyboardButton{
 			{
