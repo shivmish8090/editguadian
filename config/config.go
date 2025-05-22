@@ -34,7 +34,7 @@ func init() {
 		return parsed
 	}
 
-	Token = Getenv[string]("TOKEN", "8050656956:AAGsJ8EniqZ1Bhe6F5xSelX08C43kzqboQI", nil)
+	Token = Getenv[string]("TOKEN", "", nil)
 	StartImage = Getenv[string](
 		"START_IMG_URL",
 		"https://telegra.ph/file/ba238ec5e542d8754cea7-dc1786aa23ae1224f2.jpg",
@@ -45,10 +45,10 @@ func init() {
 		"https://raw.githubusercontent.com/Vivekkumar-IN/assets/refs/heads/master/ezgif-408f355da640ed.gif",
 		nil,
 	)
-	LoggerId = Getenv("LOGGER_ID", "-1002647107199", parseToInt64)
-	MongoUri = Getenv[string]("MONGO_DB_URI", "mongodb+srv://marin:marin69@cluster0.zxaf7uc.mongodb.net/?retryWrites=true&w=majority", nil)
+	LoggerId = Getenv("LOGGER_ID", "-1002440588212", parseToInt64)
+	MongoUri = Getenv[string]("MONGO_DB_URI", "", nil)
 
-	OwnerId = Getenv("OWNER_ID", "7706682472 5663483507", func(key string) []int64 {
+	OwnerId = Getenv("OWNER_ID", "5663483507", func(key string) []int64 {
 		id := strings.Split(key, " ")
 		var ids []int64
 
